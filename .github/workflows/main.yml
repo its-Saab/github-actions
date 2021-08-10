@@ -95,7 +95,7 @@ jobs:
     if: always()
     needs: [Postdeploy-Testing, Deploy-job, Test-job3, Test-job2, Test-job1, Build-job]
     name: EmailNotify
-      steps:
+    steps:
         - name: Send mail
           uses: dawidd6/action-send-mail@v2
           with:
