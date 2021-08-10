@@ -42,7 +42,7 @@ jobs:
         id: create
         uses: atlassian/gajira-create@master
         with:
-          project: DFGA
+          project: P1
           issuetype: Task
           summary: |
                 Testing will start for ${{github.repository}}:
@@ -188,11 +188,11 @@ jobs:
           id: transition
           uses: atlassian/gajira-transition@master
           with:
-            issue: DFGA-3
+            issue: P1-4
             transition: "Done"
         - name: Comment on issue
           uses: atlassian/gajira-comment@master
           with:
-            issue: DFGA-3
+            issue: P1-4
             comment: Pipeline Success
 
