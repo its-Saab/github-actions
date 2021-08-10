@@ -63,3 +63,16 @@ jobs:
       - run: npm install --global mocha chai --save-dev
       - run: npm install unit.js
       - run: npm test
+
+  Deploy-job:
+    runs-on: windows-latest
+    needs: [Test-job1, Test-job2, Test-job3]
+    name: Deployment
+    steps:
+      - uses: actions/checkout@v1
+      - name: deployment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm install -g surge
+      - run: surge ./ ${{secrets.SURGE_DOMAIN}} --token ${{secrets.SURGE_TOKEN}}
