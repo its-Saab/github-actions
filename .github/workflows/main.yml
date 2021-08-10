@@ -15,11 +15,16 @@ jobs:
     name: Making builds
     steps:
       - uses: actions/checkout@v1
-      - name: Install surge
-        uses: actions/setup-node@v1
+      - name: Make builds
+        uses: jzweifel/gatsby-cli-github-action@master
         with:
-          node-version: 14
-      - run: npm install -g surge
+          gatsby-arg: build
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path:
 
   Test-job1:
     runs-on: windows-latest
@@ -116,7 +121,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
+        uses: rtCamp/action-slack-notify@master
         env:
           SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
           SLACK_TITLE: Workflow status
