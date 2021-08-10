@@ -35,7 +35,7 @@ jobs:
       - run: npm install --global mocha
       - run: npm test
 
-   Test-job2:
+  Test-job2:
     runs-on: windows-latest
     name: Test2
     needs: Build-job
@@ -51,7 +51,7 @@ jobs:
 
   Test-job3:
     runs-on: windows-latest
-    name: Test1
+    name: Test3
     needs: Build-job
     if: github.ref != 'refs/heads/production'
     steps:
