@@ -116,7 +116,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Slack Notification
-        uses: rtCamp/action-slack-notify@main
+        uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
           SLACK_TITLE: Workflow status
