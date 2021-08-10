@@ -7,7 +7,7 @@ describe('Simple Tests', () => {
   it('should return 9', () => {
          assert.strictEqual(3 * 3, 9);
      });
-  it('should return 1', () => {
-         assert.strictEqual(6 / 6, 1);
+  it('should return 5', () => {
+         assert.strictEqual(10 / 2, 5);
      });
  });
