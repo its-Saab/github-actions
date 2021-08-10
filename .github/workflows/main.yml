@@ -44,7 +44,7 @@ jobs:
         with:
           project: DFGA
           issuetype: Task
-          summery: |
+          summary: |
                 Testing will start for ${{github.repository}}:
 
       - name: Transition issue
