@@ -1,12 +1,16 @@
 name: Build-Test-Deploy
 
 on:
+  workflow_dispatch:
   push:
     branches:
      - main
+  schedule:
+    - cron: '0 7 * * *'
+    - cron: '0 21 * * *'
 
 jobs:
-  build-job:
+  Build-job:
     runs-on: windows-latest
     name: Making builds
     steps:
@@ -16,3 +20,17 @@ jobs:
         with:
           node-version: 14
       - run: npm install -g surge
+
+  Test-job1:
+    runs-on: windows-latest
+    name: Test1
+    needs: Build-job
+    if: github.ref != 'refs/heads/production'
+    steps:
+      - uses: actions/checkout@v1
+      - name: Test1
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm install --global mocha
+      - run: npm test
