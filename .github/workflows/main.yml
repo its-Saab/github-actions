@@ -76,3 +76,16 @@ jobs:
           node-version: 14
       - run: npm install -g surge
       - run: surge ./ ${{secrets.SURGE_DOMAIN}} --token ${{secrets.SURGE_TOKEN}}
+
+  Postdeploy-Testing:
+    runs-on: windows-latest
+    needs: Deploy-job
+    name: Curl-Testing
+    steps:
+      - uses: actions/checkout@v1
+      - name: Curl-Testing
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: sudo apt install curl
+      - run: curl -Is ${{secrets.SURGE_DOMAIN}} | head -n 1
