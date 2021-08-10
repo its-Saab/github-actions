@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-job:
-    run-on: window-latest
+    run-on: windows-latest
     name: Making builds
     steps:
       -uses: actions/checkout@v1
