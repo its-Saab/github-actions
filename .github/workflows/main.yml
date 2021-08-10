@@ -102,7 +102,7 @@ jobs:
             server_address: smtp.gmail.com
             server_port: 465
             username: ${{secrets.MAIL_USERNAME}}
-            passwords: ${{secrets.MAIL_PASSWORD}}
+            password: ${{secrets.MAIL_PASSWORD}}
             subject: Github Actions job result
             body: Workflow status of ${{github.repository}} 1)Buildjob- ${{needs.Build-job.result}}  2)Test1- ${{needs.Test-job1.result}} 3)Test2- ${{needs.Test-job2.result}} 4)Test3- ${{needs.Test-job3.result}} 5)Deployment- ${{needs.Deploy-job.result}} 6)PostDeployment- ${{needs.Postdeploy-Testing.result}}
             to: musaababs@gmail.com
