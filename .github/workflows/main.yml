@@ -1,14 +1,14 @@
 name: Build-Test-Deploy
 
 on:
-  repository_dispatch:
+ # repository_dispatch:
   workflow_dispatch:
-  push:
-    branches:
-     - main
-  schedule:
-    - cron: '0 7 * * *'
-    - cron: '0 21 * * *'
+  #push:
+   # branches:
+  #   - main
+  #schedule:
+  # - cron: '0 7 * * *'
+  #- cron: '0 21 * * *'
 
 jobs:
   Build-job:
